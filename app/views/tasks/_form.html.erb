@@ -1,0 +1,12 @@
+<!-- app/views/restaurants/_form.html.erb -->
+
+<%= form_for(@task) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name placeholder: "Enter task name"  %>
+  <%= f.label :priority %>
+  <%= f.number_field (:priority), placeholder: "1-10 priority" %>
+  <%= f.submit %>
+<% end %>
+
+
+
