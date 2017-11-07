@@ -1,14 +1,16 @@
-
-
-<h1>Task list</h1>
+<h1>Tasks list</h1>
 
 <ul>
   <% @tasks.each do |task| %>
   <li>
-    <h2> <%= task.name  %></h2>
-    <h2> <%= link_to (task.name, task_path(id: task.id)  %></h2>
+    <p>
+      <%= task.name  %>
+      <%= task.priority %>
+    </p>
 
-    <p> <%= task.priority %></p>
+    <h2> <%= link_to task.name, tasks_path(@task) %></h2>
+
+
   </li>
   <% end  %>
 </ul>
