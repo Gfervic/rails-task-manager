@@ -1,17 +1,14 @@
-<h1>Tasks list</h1>
+<h1>All of the Tasks</h1>
 
-<ul>
   <% @tasks.each do |task| %>
-  <li>
-    <p>
-      <%= task.name  %>
-      <%= task.priority %>
-    </p>
-
-    <h2> <%= link_to task.name, tasks_path(@task) %></h2>
-
-
-  </li>
+    <h2> <%= link_to task.name, task_path(task) %> </h2>
+    <p><%= task.content %></p>
+    <p><%= "⭐" * task.priority %></p>
+    <!-- <%= link_to "More details", task_path(task) %> -->
+    <!-- We need to call the object when we call the link helper method to generate the path (the url of the request, not all) -->
+    <!-- all school -->
+    <!-- <%= link_to "More details", task_path(id: task.id) %> -->
   <% end  %>
-</ul>
+
+
 
