@@ -1,12 +1,20 @@
 <h1>All of the Tasks</h1>
 
+<%= link_to "Add a Restaurant", new_task_path  %>
+
   <% @tasks.each do |task| %>
+
+   <!--  <%= link_to task_path(task) do %>
+    <h2> <%= task.name %> </h2>
+    <% end %> -->
     <h2> <%= link_to task.name, task_path(task) %> </h2>
     <p><%= task.content %></p>
     <p><%= "⭐" * task.priority %></p>
+    <%= link_to "Remove Task", task_path(task), method: :delete %>
+
     <!-- <%= link_to "More details", task_path(task) %> -->
-    <!-- We need to call the object when we call the link helper method to generate the path (the url of the request, not all) -->
-    <!-- all school -->
+    <!-- We need to pass the object as an argument when we call the link helper method to generate the dinamic path (the url of the request, not all) -->
+    <!-- Old school -->
     <!-- <%= link_to "More details", task_path(id: task.id) %> -->
   <% end  %>
 

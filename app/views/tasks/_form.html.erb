@@ -1,12 +1,50 @@
-<!-- app/views/restaurants/_form.html.erb -->
-
-<%= form_for(@task) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name placeholder: "Enter task name"  %>
-  <%= f.label :priority %>
-  <%= f.number_field (:priority), placeholder: "1-10 priority" %>
+<%= form_for @task do |f| %>
+  <%= f.label :name, "Enter a name" %>
+  <%= f.text_field :name  %>
+  <%= f.label :content, "Enter content" %>
+  <%= f.text_field :content  %>
+  <%= f.label :priority, "Enter priority" %>
+  <%= f.number_field :priority %>
   <%= f.submit %>
 <% end %>
+
+
+<!-- SIMPLE FORM NEW => post to create
+
+<form action="/tasks" method="post">
+
+  <label for="name">Enter a task name</label>
+  <input type="text" name="task[name]">
+
+  <label for="content">Enter content</label>
+  <input type="text" name="task[content]">
+
+  <label for="priority">Enter priority</label>
+  <input type="text" name="task[priority]">
+
+  <input type="submit">
+
+</form>
+
+ -->
+
+ <!-- SIMPLE FORM EDIT => patch to update
+
+<form action="/tasks/1" method="patch">
+
+  <label for="name">Enter a task name</label>
+  <input type="text" name="task[name]" value= "Code">
+
+  <label for="content">Enter content</label>
+  <input type="text" name="task[content]" value="Finish this week lectures and exercises">
+
+  <label for="priority">Enter priority</label>
+  <input type="text" name="task[priority]" value="9">
+
+  <input type="submit">
+
+
+
 
 
 

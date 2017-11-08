@@ -2,4 +2,5 @@
 <p><%= @task.content %></p>
 <p><%= "⭐" * @task.priority %></p>
 
-<%= link_to "Back to all tasks", tasks_path %>
+<p> <%= link_to "Edit restaurant", edit_task_path(id: @task.id) %> </p>
+<p> <%= link_to "Back to all tasks", tasks_path %> </p>

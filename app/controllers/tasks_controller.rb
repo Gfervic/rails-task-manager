@@ -7,7 +7,6 @@ class TasksController < ApplicationController
   end
 
   def show
-    # @task = Task.find(params[:id])
   end
 
   def new
@@ -15,36 +14,35 @@ class TasksController < ApplicationController
   end
 
   def create
-    @task = Task.new(task_params)
-    @task.save
+    @task = Task.create(task_params)
 
-    redirect_to task_path(id: task.id)
+
+    redirect_to tasks_path
   end
 
   def edit
-    # @task = Task.find(params[:id])
   end
 
   def update
-    # @task = Task.find(params[:id])
-    # @task.update(params[:task])
+    # @task.update(params[:task]) => not secure, that´s why we implement the private task_params method so no additional inputs can be passed in the form
     @task.update(task_params)
 
-    redirect_to task_path(id: task.id)
+    redirect_to task_path(@task)
+    #redirect_to task_path(id: task.id) => old school
   end
 
   def destroy
-    # @task = Task.find(params[:id])
     @task.destroy
 
-    redirect_to task_path
+    redirect_to tasks_path
   end
 
   private
 
   def task_params
-    params.require(:task).permit(:name, :priority)
+    params.require(:task).permit(:name, :content, :priority)
   end
+  # strong param against hackers
 
   def find_task
      @task = Task.find(params[:id])
