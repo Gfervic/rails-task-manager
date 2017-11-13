@@ -33,4 +33,5 @@ Rails.application.routes.draw do
   resources :tasks
 
   #it improves our prefix to use them for links
+
 end

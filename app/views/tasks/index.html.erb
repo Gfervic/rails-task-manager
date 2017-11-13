@@ -12,7 +12,9 @@
     <p><%= "⭐" * task.priority %></p>
 
     <p> <%= link_to "More details", task_path(task) %> </p>
-    <p> <%= link_to "Remove Task", task_path(task), method: :delete %> </p>
+    <p> <%= link_to "Remove Task", task_path(task),
+              method: :delete,
+              data: { confirm: "Are you sure?" } %> </p>
 
     <!-- <%= link_to "More details", task_path(task) %> -->
     <!-- We need to pass the object as an argument when we call the link helper method to generate the dinamic path (the url of the request, not all) -->
